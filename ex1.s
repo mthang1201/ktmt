@@ -1,8 +1,8 @@
 .section .data
 msg: .asciz "Result is %d\n"
-a: .int 6
-b: .int 7
-c: .int 8
+a: .long 6
+b: .long 7
+c: .long 8
 
 .section .text
 .globl _start
@@ -11,10 +11,11 @@ _start:
  add b, %eax
  mov %eax, c
 
- mov c, %esi
+ mov c, %rsi
  lea msg, %rdi
- mov $0, %eax
+ mov $0, %rax
  call printf
 
  mov $0, %edi
  call exit
+ 
